@@ -1,18 +1,7 @@
-// import Vue from "vue";
-// import Vuex from "vuex";
-
-// Vue.use(Vuex);
-
-
 import authentication from "./modules/auth.module";
-
-
-// export default new Vuex.Store({
-//   modules: {
-//     authentication,
-//   },
-//   strict: process.env.NODE_ENV !== "production",
-// });
+import layout from "./modules/layout.module";
+import notification from "./modules/notification.module";
+import todo from "./modules/todo.module";
 
 import { createStore } from 'vuex'
 
@@ -20,6 +9,9 @@ import { createStore } from 'vuex'
 const store = createStore({
   modules: {
     authentication,
+    layout,
+    notification,
+    todo,
   },
   strict: process.env.NODE_ENV !== "production",
 })

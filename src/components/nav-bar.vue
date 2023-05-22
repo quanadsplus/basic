@@ -266,7 +266,6 @@ export default {
         }
       });
     }
-    console.log(this.$refs.refheader)
     document.addEventListener("scroll", function () {
       var pageTopbar = document.getElementById("page-topbar");
       if (pageTopbar) {

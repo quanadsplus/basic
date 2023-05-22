@@ -1,6 +1,11 @@
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
-
+export const authComputed = {
+  ...mapState('auth', {
+    currentUser: (state) => state.currentUser,
+  }),
+  ...mapGetters('auth', ['loggedIn']),
+}
 
 export const layoutComputed = {
   ...mapState('layout', {
@@ -17,6 +22,7 @@ export const layoutComputed = {
   })
 }
 
+export const authMethods = mapActions('auth', [ 'logOut' ,'loginEmailPassword'])
 
 export const layoutMethods = mapActions('layout', 
 ['changeLayoutType', 'changeLayoutWidth', 'changeSidebarSize', 'changeTopbar', 'changeMode', 'changePosition', 'changeSidebarView',

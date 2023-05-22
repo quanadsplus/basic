@@ -1,4 +1,3 @@
-import store from "@/state/store";
 
 export default [
   {
@@ -17,14 +16,11 @@ export default [
     meta: {
       title: "Login",
       beforeResolve(routeTo, routeFrom, next) {
-        // If the user is already logged in
-        if (store.getters["auth/loggedIn"]) {
-          // Redirect to the home page instead
-          next({ name: "default" });
-        } else {
+       
+      
           // Continue to the login page
           next();
-        }
+        
       },
     },
   },
@@ -36,13 +32,11 @@ export default [
       title: "Forgot Password",
       beforeResolve(routeTo, routeFrom, next) {
         // If the user is already logged in
-        if (store.getters["auth/loggedIn"]) {
-          // Redirect to the home page instead
-          next({ name: "default" });
-        } else {
+       
+    
           // Continue to the login page
           next();
-        }
+        
       },
     },
   },
@@ -112,6 +106,18 @@ export default [
     path: "/dashboard/dashboard-overview",
     name: "dashboard-overview",
     meta: { title: "Dashboard Overview", authRequired: true },
+    component: () => import("../views/dashboard/overview/index"),
+  },
+  {
+    path: "/dashboard/dashboard-by-service",
+    name: "dashboard-by-service",
+    meta: { title: "Dashboard Service", authRequired: true },
+    component: () => import("../views/dashboard/overview/index"),
+  },
+  {
+    path: "/dashboard/dashboard-by-contract",
+    name: "dashboard-by-contract",
+    meta: { title: "Dashboard Contract", authRequired: true },
     component: () => import("../views/dashboard/overview/index"),
   },
   {

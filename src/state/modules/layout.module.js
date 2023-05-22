@@ -1,4 +1,4 @@
-export const state = {
+const state = {
   layoutType: 'twocolumn',
   layoutWidth: 'fluid',
   sidebarSize: 'sm-hover',
@@ -11,7 +11,7 @@ export const state = {
   visibility: 'show'
 };
 
-export const mutations = {
+const mutations = {
   CHANGE_LAYOUT(state, layoutType) {
     state.layoutType = layoutType;
   },
@@ -44,7 +44,7 @@ export const mutations = {
   },
 };
 
-export const actions = {
+const actions = {
   changeLayoutType({ commit }, { layoutType }) {
     commit('CHANGE_LAYOUT', layoutType);
     document.body.removeAttribute("style");
@@ -81,3 +81,11 @@ export const actions = {
     commit('CHANGE_VISIBILITY', visibility);
   }
 };
+
+
+export default {
+  namespaced:true,
+  state:state,
+  mutations:mutations,
+  actions:actions
+}

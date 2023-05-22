@@ -10,13 +10,10 @@ class AuthenticationService {
    */
   static async login(email, password) {
     try {
- 
-      
       const result = await Fetch.make().post('https://api-node.themesbrand.website/auth/signin', {
         email: email,
         password: password
       } );
-      console.log(result)
       return result;
     } catch (error) {
       throw new Error(error)

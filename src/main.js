@@ -4,7 +4,6 @@ import router from "./router";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import i18n from './i18n';
-import stores from "./state/store";
 import store from "./state/index";
 
 import BootstrapVue3 from 'bootstrap-vue-3';
@@ -28,7 +27,6 @@ AOS.init({
 
 createApp(App)
     .use(store)
-    .use(stores)
     .use(router)
     .use(VueApexCharts)
     .use(BootstrapVue3)

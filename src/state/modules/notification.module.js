@@ -1,9 +1,26 @@
-export const state = {
+const initialState = {
     type: null,
     message: null
 };
 
-export const mutations = {
+export default {
+  namespaced: true,
+  state: initialState,
+  actions: {
+    /**
+     * Get config
+     */
+    success({ commit }, message) {
+        commit('success', message);
+    },
+    error({ commit }, message) {
+        commit('error', message);
+    },
+    clear({ commit }) {
+        commit('clear');
+    }
+  },
+  mutations: {
     success(state, message) {
         state.type = 'alert-success';
         state.message = message;
@@ -16,16 +33,5 @@ export const mutations = {
         state.type = null;
         state.message = null;
     }
-};
-
-export const actions = {
-    success({ commit }, message) {
-        commit('success', message);
-    },
-    error({ commit }, message) {
-        commit('error', message);
-    },
-    clear({ commit }) {
-        commit('clear');
-    }
+  },
 };
